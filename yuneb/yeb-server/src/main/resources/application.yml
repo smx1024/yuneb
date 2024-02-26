@@ -1,0 +1,57 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sxyyds.xyz:3306/yuneb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: shangxu929
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000   #连接最大存活时间
+  redis:
+    host: sxyyds.xyz
+    password: shangxu929
+    database: 4
+    port: 6379
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  rabbitmq:
+    host: 1.94.54.189
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        #开启手动确认
+        acknowledge-mode: manual
+    publisher-confirm-type: correlated
+    publisher-returns: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+logging:
+  level:
+    com.sx: debug
+
+#集成Swagger高版本启动异常配置，低版本可以不配置
+#  swagger:
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ANT_PATH_MATCHER
+# 关闭MyBatis Plus的驼峰命名规则
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      accessKeyId: LTAI5t6S8xi3hPBC1RxfSVNi
+      accessKeySecret: bzlLbVtEh3CwBa7yNpJErHUzUV2S4y
+      bucketName: guliedu-sx
+
